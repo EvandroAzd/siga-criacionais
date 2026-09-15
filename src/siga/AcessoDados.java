@@ -26,8 +26,14 @@ package siga;
  *   - Etapa 4: transformar o AcessoDados em um Singleton.
  */
 public class AcessoDados {
+    //Solução 01: Guardar a instancia em uma classe estatica
+    private static AcessoDados acessoDados;
 
     // PROBLEMA 1: conexão e comando criados separadamente, sem garantia de coerência.
+    // Solução 02: tornei o construtor private, para nenhuma classe externa fazer new
+    private AcessoDados() {
+    }
+
     public void conectar(String fornecedor) {
         Conexao conexao;
         Comando comando;
@@ -43,6 +49,14 @@ public class AcessoDados {
         //   comando = new ComandoPostgreSQL();  // <- incoerência não detectada!
         conexao.abrir();
         comando.executar("SELECT * FROM aluno");
+    }
+
+    //Solução 03: criei um método estatico para instaciar a classe
+    public static AcessoDados obterInstancia() {
+        if (acessoDados == null) {
+            acessoDados = new AcessoDados();
+        }
+        return acessoDados;
     }
 
     // PROBLEMA 2: método telescópico — muitos parâmetros opcionais.

@@ -53,4 +53,4 @@ Ao final: (a) deve ser **impossível** combinar uma conexão de um fornecedor co
 
 ## Padrão de entrega
 
-Conforme a ficha de atividade prática: identificadores em português, um arquivo `.java` por classe pública, código formatado, entrega no repositório Git com README e commits descritivos. O uso de IA para gerar o código é proibido nesta atividade (ver seção 5.3 da ficha).
+Conforme a ficha de atividade prática: identificadores em português, um arquivo `.java` por classe pública, código formatado, entrega no repositório Git com README e commits descritivos. O uso de IA para gerar o código é para nivel de auxilio nesta atividade, o aluno deve aplicar os conhecimentos. (ver seção 5.3 da ficha).

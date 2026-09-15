@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== SIGA - Atividade de Padrões Criacionais (código inicial) ===\n");
 
-        AcessoDados acesso = new AcessoDados();
+        AcessoDados acesso = AcessoDados.obterInstancia();
         acesso.conectar("MYSQL");
         System.out.println();
         acesso.conectar("POSTGRESQL");
