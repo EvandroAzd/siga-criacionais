@@ -34,19 +34,19 @@ public class AcessoDados {
     private AcessoDados() {
     }
 
-    public void conectar(String fornecedor) {
-        Conexao conexao;
-        Comando comando;
-        if (fornecedor.equals("MYSQL")) {
-            conexao = new ConexaoMySQL();
-            comando = new ComandoMySQL();
-        } else {
-            conexao = new ConexaoPostgreSQL();
-            comando = new ComandoPostgreSQL();
-        }
-        // Nada impede o engano abaixo (fornecedores misturados):
-        //   conexao = new ConexaoMySQL();
-        //   comando = new ComandoPostgreSQL();  // <- incoerência não detectada!
+    public void conectar(FabricaBanco fabrica) {
+        Conexao conexao = fabrica.criarConexao();
+        Comando comando = fabrica.criarComando();
+
+        //Abstract Factory substituiu o uso desta escolha interna
+//        if (fornecedor.equals("MYSQL")) {
+//            conexao = new ConexaoMySQL();
+//            comando = new ComandoMySQL();
+//        } else {
+//            conexao = new ConexaoPostgreSQL();
+//            comando = new ComandoPostgreSQL();
+//        }
+
         conexao.abrir();
         comando.executar("SELECT * FROM aluno");
     }
